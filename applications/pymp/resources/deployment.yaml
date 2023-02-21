@@ -19,3 +19,6 @@ spec:
       - name: pymp-server
         image: ghcr.io/tomp736/pymp/pymp_server:latest
         imagePullPolicy: Always
+        envFrom:
+        - configMapRef:
+            name: pymp-server
