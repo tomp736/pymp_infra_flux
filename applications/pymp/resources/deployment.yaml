@@ -22,3 +22,29 @@ spec:
         envFrom:
         - configMapRef:
             name: pymp-server
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: pymp-redis
+  name: pymp-redis
+  namespace: pymp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pymp-redis
+  template:
+    metadata:
+      labels:
+        app: pymp-redis
+    spec:
+      containers:
+      - name: pymp-redis
+        image: redis:latest
+        command: redis-server --port 6379   
+        imagePullPolicy: Always
+        envFrom:
+        - configMapRef:
+            name: pymp-redis
