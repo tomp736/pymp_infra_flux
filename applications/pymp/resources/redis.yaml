@@ -18,5 +18,5 @@ spec:
       containers:
       - name: pymp-redis
         image: redis:latest
-        command: redis-server --port 6379   
+        command: ["redis-server", "--port", "6379"]
         imagePullPolicy: Always
