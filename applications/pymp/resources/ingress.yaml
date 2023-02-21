@@ -13,6 +13,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: resume
+            name: pymp-server
             port:
               number: 80
