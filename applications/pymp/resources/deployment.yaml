@@ -2,20 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: pymp_server
-  name: pymp_server
+    app: pymp-server
+  name: pymp-server
   namespace: pymp
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pymp_server
+      app: pymp-server
   template:
     metadata:
       labels:
-        app: pymp_server
+        app: pymp-server
     spec:
       containers:
-      - name: pymp_server
+      - name: pymp-server
         image: ghcr.io/tomp736/pymp/pymp_server:latest
         imagePullPolicy: Always
