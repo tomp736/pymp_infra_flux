@@ -1,0 +1,13 @@
+# version.patch.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pymp_server
+  namespace: pymp
+spec:
+  template:
+    spec:
+      containers:
+        - name: pymp_server
+          image: ghcr.io/tomp736/pymp/pymp_server:latest
+          imagePullPolicy: Always
