@@ -7,6 +7,6 @@ resources:
   - resources/service.yaml
   - resources/configmap.yaml
   - resources/redis.yaml
-  # - resources/ingress.yaml
+  - resources/ingress.yaml
 patches:
   - patches/version.patch.yaml
