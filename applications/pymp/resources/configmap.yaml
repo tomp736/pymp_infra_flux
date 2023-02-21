@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: pymp-server
+  namespace: pymp
 data:
   PYTHONHASHSEED: "383747829"
   FLASK_RUN_HOST: "0.0.0.0"
@@ -11,4 +12,4 @@ data:
   MEDIA_CHUNK_SIZE: "4194304"
   THUMB_CHUNK_SIZE: "32768"
   CORS_HEADER: "http://*:8080"
-  SERVICE_TYPE: 63
+  SERVICE_TYPE: "63"
