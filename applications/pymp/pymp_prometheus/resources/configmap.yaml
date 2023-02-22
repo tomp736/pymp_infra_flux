@@ -1,9 +1,21 @@
 apiVersion: v1
-data:
-  prometheus.yml: "global:\n  scrape_interval: 5s\n  evaluation_interval: 5s\n\nscrape_configs:\n
-    \ - job_name: prometheus\n    static_configs:\n      - targets: \n        - 'prometheus:9090'\n\n
-    \ - job_name: 'pymp'\n    static_configs:\n    - targets:\n      - 'pymp_server:8000'"
 kind: ConfigMap
 metadata:
-  creationTimestamp: null
-  name: prometheus-config
+  name: pymp-prometheus
+data:
+  prometheus.yml: |
+    global:
+      scrape_interval: 5s
+      evaluation_interval: 5s
+
+    scrape_configs:
+      - job_name: prometheus
+        static_configs:
+          - targets: 
+            - 'prometheus:9090'
+
+      - job_name: 'pymp'
+        static_configs:
+          - targets:
+            - 'pymp-server:8000'
+            - 'pymp-server-media-registry:8000'

@@ -6,3 +6,4 @@ resources:
   - pymp_frontend
   - pymp_server_media_registry
   - pymp_server
+  - pymp_prometheus

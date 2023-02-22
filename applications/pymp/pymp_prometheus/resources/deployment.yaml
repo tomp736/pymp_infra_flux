@@ -19,6 +19,11 @@ spec:
       - name: pymp-prometheus
         image: prom/prometheus
         imagePullPolicy: Always
-        envFrom:
-        - configMapRef:
+        volumeMounts:
+          - name: config-volume
+            mountPath: /etc/prometheus/prometheus.yml
+            subPath: prometheus.yml
+      volumes:
+        - name: config-volume
+          configMap:
             name: pymp-prometheus
