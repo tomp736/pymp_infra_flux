@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: pymp-ingress
+  name: pymp-server
   namespace: pymp
 spec:
   ingressClassName: traefik-public
