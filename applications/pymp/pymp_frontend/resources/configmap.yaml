@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pymp-frontend
+  namespace: pymp
+data:
+  MEDIA_URL: "http://api.pymp.labrats.work:80"
+  THUMB_URL: "http://api.pymp.labrats.work:80"
+  META_URL: "http://api.pymp.labrats.work:80"

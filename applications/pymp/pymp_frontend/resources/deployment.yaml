@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: pymp-frontend
+  name: pymp-frontend
+  namespace: pymp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pymp-frontend
+  template:
+    metadata:
+      labels:
+        app: pymp-frontend
+    spec:
+      containers:
+      - name: pymp-frontend
+        image: ghcr.io/tomp736/pymp/pymp_frontend:latest
+        imagePullPolicy: Always
+        envFrom:
+        - configMapRef:
+            name: pymp-frontend

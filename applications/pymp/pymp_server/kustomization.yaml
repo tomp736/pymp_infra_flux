@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: pymp
+resources:  
+  - resources/namespace.yaml
+  - resources/deployment.yaml
+  - resources/service.yaml
+  - resources/configmap.yaml
+  - resources/redis.yaml
+  - resources/redis-service.yaml
+  - resources/ingress.yaml
+patches:
+  - patches/version.patch.yaml
