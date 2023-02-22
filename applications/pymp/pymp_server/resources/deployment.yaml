@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: pymp-server
-        image: ghcr.io/tomp736/pymp/pymp_server:0.1.1-dev
+        image: ghcr.io/tomp736/pymp/pymp_server:latest
         imagePullPolicy: Always
         envFrom:
         - configMapRef:
