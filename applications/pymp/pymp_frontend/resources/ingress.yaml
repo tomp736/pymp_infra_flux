@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: traefik-public
   rules:
-  - host: pymp.labrats.work
+  - host: frontend.pymp.labrats.work
     http:
       paths:
       - path: /
