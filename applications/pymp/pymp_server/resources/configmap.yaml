@@ -11,7 +11,7 @@ data:
   REDIS_PORT: "6379"
   MEDIA_CHUNK_SIZE: "4194304"
   THUMB_CHUNK_SIZE: "32768"
-  CORS_HEADER: "http://frontend.pymp.labrats.work:32080"
+  CORS_HEADER: "http://frontend.pymp.labrats.work"
   SERVICE_TYPE: "31"
 
   SERVICE_ID: "internal"
