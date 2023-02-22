@@ -1,0 +1,9 @@
+apiVersion: v1
+data:
+  prometheus.yml: "global:\n  scrape_interval: 5s\n  evaluation_interval: 5s\n\nscrape_configs:\n
+    \ - job_name: prometheus\n    static_configs:\n      - targets: \n        - 'prometheus:9090'\n\n
+    \ - job_name: 'pymp'\n    static_configs:\n    - targets:\n      - 'pymp_server:8000'"
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: prometheus-config

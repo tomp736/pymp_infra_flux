@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: pymp-prometheus
+  name: pymp-prometheus
+  namespace: pymp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pymp-prometheus
+  template:
+    metadata:
+      labels:
+        app: pymp-prometheus
+    spec:
+      containers:
+      - name: pymp-prometheus
+        image: prom/prometheus
+        imagePullPolicy: Always
+        envFrom:
+        - configMapRef:
+            name: pymp-prometheus
