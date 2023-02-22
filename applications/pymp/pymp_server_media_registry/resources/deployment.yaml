@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: pymp-server-media-registry
+  name: pymp-server-media-registry
+  namespace: pymp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pymp-server-media-registry
+  template:
+    metadata:
+      labels:
+        app: pymp-server-media-registry
+    spec:
+      containers:
+      - name: pymp-server-media-registry
+        image: ghcr.io/tomp736/pymp/pymp_server:latest
+        imagePullPolicy: Always
+        envFrom:
+        - configMapRef:
+            name: pymp-server-media-registry

@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pymp-server-media-registry
+  namespace: pymp
+spec:
+  ingressClassName: traefik-public
+  rules:
+  - host: registry.pymp.labrats.work
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: pymp-server-media-registry
+            port:
+              number: 80

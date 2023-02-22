@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: pymp-server
+  name: pymp-server-media-registry
   namespace: pymp
 data:
   PYTHONHASHSEED: "383747829"
@@ -12,7 +12,4 @@ data:
   MEDIA_CHUNK_SIZE: "4194304"
   THUMB_CHUNK_SIZE: "32768"
   CORS_HEADER: "http://frontend.pymp.labrats.work:32080"
-  SERVICE_TYPE: "31"
-  MEDIAREGISTRY_SVC_PROTO: "http"
-  MEDIAREGISTRY_SVC_HOST: "pymp-server-media-registry"
-  MEDIAREGISTRY_SVC_PORT: "80"
+  SERVICE_TYPE: "64"

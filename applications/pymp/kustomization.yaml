@@ -4,4 +4,5 @@ resources:
   - namespace.yaml
   - pymp_redis
   - pymp_frontend
+  - pymp_server_media_registry
   - pymp_server
