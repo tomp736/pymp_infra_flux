@@ -5,6 +5,5 @@ resources:
   - resources/deployment.yaml
   - resources/service.yaml
   - resources/configmap.yaml
-  - resources/ingress.yaml
 patches:
   - patches/version.patch.yaml
