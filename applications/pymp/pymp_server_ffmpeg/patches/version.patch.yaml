@@ -9,5 +9,5 @@ spec:
     spec:
       containers:
         - name: pymp-server-ffmpeg
-          image: ghcr.io/tomp736/pymp/pymp_server:0.2.14-dev
+          image: ghcr.io/tomp736/pymp/pymp_server:0.2.15-dev
           imagePullPolicy: Always
