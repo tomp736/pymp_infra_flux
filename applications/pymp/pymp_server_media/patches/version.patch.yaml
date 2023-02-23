@@ -2,12 +2,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pymp-server
+  name: pymp-server-media
   namespace: pymp
 spec:
   template:
     spec:
       containers:
-        - name: pymp-server
+        - name: pymp-server-media
           image: ghcr.io/tomp736/pymp/pymp_server:0.2.2-dev
           imagePullPolicy: Always
