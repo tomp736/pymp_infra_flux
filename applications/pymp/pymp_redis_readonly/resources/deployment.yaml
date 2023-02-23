@@ -18,5 +18,5 @@ spec:
       containers:
       - name: pymp-redis-readonly
         image: redis:latest
-        command: ["redis-server", "--slaveof", "redis-master", "6379"]
+        command: ["redis-server", "--slaveof", "pymp-redis", "6379"]
         imagePullPolicy: Always
