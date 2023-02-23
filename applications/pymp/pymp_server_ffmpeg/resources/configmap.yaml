@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: pymp-server
+  name: pymp-server-ffmpeg
   namespace: pymp
 data:
   PYTHONHASHSEED: "383747829"
   FLASK_RUN_HOST: "0.0.0.0"
   FLASK_RUN_PORT: "80"
-  REDIS_HOST: "pymp-redis-readonly"
+  REDIS_HOST: "pymp-redis"
   REDIS_PORT: "6379"
   MEDIA_CHUNK_SIZE: "4194304"
   THUMB_CHUNK_SIZE: "32768"
@@ -15,9 +15,9 @@ data:
 
   SERVICE_ID: "internal"
   SERVICE_PROTO: "http"
-  SERVICE_HOST: "pymp-server"
+  SERVICE_HOST: "pymp-server-ffmpeg"
   SERVICE_PORT: "80"
-  SERVICE_TYPE: "15"
+  SERVICE_TYPE: "16"
 
   MEDIAREGISTRY_SVC_PROTO: "http"
   MEDIAREGISTRY_SVC_HOST: "pymp-server-media-registry"
