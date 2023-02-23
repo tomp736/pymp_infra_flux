@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - pymp_redis
+  - pymp_redis_readonly
   - pymp_frontend
   - pymp_server_media_registry
   - pymp_server_media
