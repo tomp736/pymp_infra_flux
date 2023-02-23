@@ -1,0 +1,13 @@
+# version.patch.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pymp-redis
+  namespace: pymp
+spec:
+  template:
+    spec:
+      containers:
+        - name: pymp-redis
+          image: redis:latest
+          imagePullPolicy: Always

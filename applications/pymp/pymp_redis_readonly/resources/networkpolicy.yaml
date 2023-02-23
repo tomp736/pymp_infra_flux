@@ -1,19 +1,19 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: pymp-redis-allow
+  name: pymp-redis-readonly-allow
   namespace: pymp
 spec:
   podSelector:
     matchLabels:
-      app: pymp-redis
+      app: pymp-redis-readonly
   policyTypes:
   - Ingress
   ingress:
   - from:
     - podSelector:
         matchLabels:
-          redis: readwrite
+          redis: readonly
     ports:
     - protocol: TCP
       port: 6379

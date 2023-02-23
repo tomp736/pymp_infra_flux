@@ -14,6 +14,7 @@ spec:
     metadata:
       labels:
         app: pymp-server-media
+        redis: readonly
     spec:
       containers:
       - name: pymp-server-media

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: pymp-redis-readonly
+  name: pymp-redis-readonly
+  namespace: pymp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pymp-redis-readonly
+  template:
+    metadata:
+      labels:
+        app: pymp-redis-readonly
+    spec:
+      containers:
+      - name: pymp-redis-readonly
+        image: redis:latest
+        command: ["redis-server", "--slaveof", "redis-master", "6379"]
+        imagePullPolicy: Always
