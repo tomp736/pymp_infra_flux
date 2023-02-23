@@ -4,5 +4,6 @@ namespace: pymp
 resources:  
   - resources/deployment.yaml
   - resources/service.yaml
+  - resources/networkpolicy.yaml
 patches:
   - patches/version.patch.yaml
