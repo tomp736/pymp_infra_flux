@@ -9,5 +9,5 @@ spec:
     spec:
       containers:
         - name: pymp-server-media
-          image: ghcr.io/tomp736/pymp/pymp_server:0.2.12-dev
+          image: ghcr.io/tomp736/pymp/pymp_server:0.2.13-dev
           imagePullPolicy: Always
