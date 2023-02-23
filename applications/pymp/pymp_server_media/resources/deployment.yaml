@@ -23,3 +23,8 @@ spec:
         envFrom:
         - configMapRef:
             name: pymp-server-media
+        env:
+        - name: SERVICE_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
