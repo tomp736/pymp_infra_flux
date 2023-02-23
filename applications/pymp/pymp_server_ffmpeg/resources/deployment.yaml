@@ -20,6 +20,11 @@ spec:
       - name: pymp-server-ffmpeg
         image: ghcr.io/tomp736/pymp/pymp_server:latest
         imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: "100m"
+          limits:
+            cpu: "500m"
         envFrom:
         - configMapRef:
             name: pymp-server-ffmpeg
