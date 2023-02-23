@@ -14,4 +14,4 @@ data:
   SERVICE_PROTO: "http"
   SERVICE_HOST: "pymp-server-media-registry"
   SERVICE_PORT: "80"
-  SERVICE_TYPE: "64"
+  SERVICE_TYPE: "32"
