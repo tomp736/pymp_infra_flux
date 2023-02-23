@@ -18,4 +18,6 @@ data:
         static_configs:
           - targets:
             - 'pymp-server:8000'
+            - 'pymp-server-media:8000'
+            - 'pymp-server-ffmpeg:8000'
             - 'pymp-server-media-registry:8000'
