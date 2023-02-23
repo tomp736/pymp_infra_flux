@@ -6,7 +6,7 @@ metadata:
   name: pymp-server-media
   namespace: pymp
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: pymp-server-media
