@@ -6,7 +6,7 @@ metadata:
   name: pymp-server-ffmpeg
   namespace: pymp
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: pymp-server-ffmpeg
