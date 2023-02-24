@@ -12,6 +12,10 @@ spec:
   selector:
     matchLabels:
       app: pymp-frontend
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 50%
   template:
     metadata:
       labels:
