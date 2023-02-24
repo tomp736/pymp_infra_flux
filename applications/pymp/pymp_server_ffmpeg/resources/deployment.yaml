@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: pymp-server-ffmpeg
+    pymp.image: pymp-server
   name: pymp-server-ffmpeg
   namespace: pymp
 spec:
@@ -18,7 +19,7 @@ spec:
         redis: readwrite
     spec:
       containers:
-      - name: pymp-server-ffmpeg
+      - name: pymp-server
         image: ghcr.io/tomp736/pymp/pymp_server:latest
         imagePullPolicy: Always
         resources:

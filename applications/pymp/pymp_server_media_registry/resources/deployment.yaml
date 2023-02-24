@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: pymp-server-media-registry
+    pymp.image: pymp-server
   name: pymp-server-media-registry
   namespace: pymp
 spec:
@@ -18,7 +19,7 @@ spec:
         redis: readwrite
     spec:
       containers:
-      - name: pymp-server-media-registry
+      - name: pymp-server
         image: ghcr.io/tomp736/pymp/pymp_server:latest
         imagePullPolicy: Always
         envFrom:

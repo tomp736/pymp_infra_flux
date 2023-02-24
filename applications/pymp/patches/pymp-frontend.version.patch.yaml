@@ -1,0 +1,9 @@
+# fix-version.patch.yaml
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  template:
+    spec:
+      containers:
+        - name: pymp-frontend
+          image: ghcr.io/tomp736/pymp/pymp_frontend:0.2.18-dev

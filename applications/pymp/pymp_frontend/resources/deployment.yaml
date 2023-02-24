@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: pymp-frontend
+    pymp.image: pymp-frontend
   name: pymp-frontend
   namespace: pymp
 spec:

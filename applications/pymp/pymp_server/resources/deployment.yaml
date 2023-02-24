@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: pymp-server
+    pymp.image: pymp-server
   name: pymp-server
   namespace: pymp
 spec:
