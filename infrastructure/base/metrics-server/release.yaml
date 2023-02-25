@@ -19,7 +19,6 @@ spec:
   values:
     args:
       - --kubelet-preferred-address-types=InternalIP
-      - --authentication-token-webhook=true
     rbac:
       create: true
     serviceAccount:
