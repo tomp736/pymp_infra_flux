@@ -3,6 +3,5 @@ kind: Kustomization
 namespace: pymp
 resources:  
   - resources/deployment.yaml
-  - resources/hpa.yaml
   - resources/service.yaml
   - resources/configmap.yaml
