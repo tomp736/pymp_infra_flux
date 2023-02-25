@@ -17,5 +17,17 @@ spec:
     remediation:
       retries: 3
   values:
-    image:
-      pullPolicy: IfNotPresent
+    args:
+      - --kubelet-preferred-address-types=InternalIP
+      - --authentication-token-webhook=true
+      - --requestheader-allowed-names=aggregated-metrics-server
+      - --requestheader-client-ca-file=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+      - --requestheader-extra-headers-prefix=X-Remote-Extra-
+      - --requestheader-group-headers=X-Remote-Group
+      - --requestheader-username-headers=X-Remote-User
+      - --tls-cert-file=/var/run/secrets/kubernetes.io/serviceaccount/tls.crt
+      - --tls-private-key-file=/var/run/secrets/kubernetes.io/serviceaccount/tls.key
+    rbac:
+      create: true
+    serviceAccount:
+      create: true
