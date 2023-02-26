@@ -37,7 +37,7 @@ jobs:
 
       - name: Check if image is available
         run: |
-          docker pull ${{ matrix.image }}:${{ needs.prepare.outputs.current_version }}-dev
+          docker pull ghcr.io/tomp736/pymp/${{ matrix.image }}:${{ needs.prepare.outputs.current_version }}-dev
       
       - name: Update deployment images
         if: matrix.image == 'ghcr.io/tomp736/pymp/pymp_frontend'
