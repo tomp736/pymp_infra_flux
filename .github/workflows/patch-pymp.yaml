@@ -1,0 +1,56 @@
+name: Update PyMP Patch
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      new_version: ${{ steps.patch_version.outputs.new_version }}
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.WORKFLOW_TOKEN }}
+      
+      # Read the current version number from git ls-remote
+      - id: current_version
+        shell: bash
+        run: |
+          echo $(git tag | sort -V | tail -1)
+          echo "version=$(git ls-remote --tag https://github.com/tomp736/pymp.git | cut -d '/' -f 3 | sort -V | tail -1)" >> $GITHUB_OUTPUT      
+
+  update-patches:
+    strategy:
+      fail-fast: false
+      matrix:
+        images:
+          - ghcr.io/tomp736/pymp/pymp_frontend
+          - ghcr.io/tomp736/pymp/pymp_server
+          
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Check if image is available
+        run: |
+          docker pull ${{ matrix.image }}:${{ needs.prepare.outputs.new_version }}-dev
+      
+      - name: Update deployment images
+        if: matrix.image == 'ghcr.io/tomp736/pymp/pymp_frontend'
+        run: |
+          yq '.spec.template.spec.containers[0].image = "${{ matrix.image }}:${{ needs.prepare.outputs.new_version }}-dev"' applications/pymp/patches/pymp-frontend.version.patch.yaml -iy
+      
+      - name: Update deployment images
+        if: matrix.image == 'ghcr.io/tomp736/pymp/pymp_server'
+        run: |
+          yq '.spec.template.spec.containers[0].image = "${{ matrix.image }}:${{ needs.prepare.outputs.new_version }}-dev"' applications/pymp/patches/pymp-server.version.patch.yaml -iy
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Update PyMP frontend deployment image"
+          commit_options: '--author "GitHub Action <action@github.com>"'
