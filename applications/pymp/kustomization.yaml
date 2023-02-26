@@ -11,9 +11,9 @@ resources:
   - pymp_server
   - pymp_prometheus
 patches:
-  - path: patches/pymp-frontend.version.patch.yaml
+  - path: patches/pymp_frontend.version.patch.yaml
     target:
       labelSelector: "pymp.image=pymp-frontend"
-  - path: patches/pymp-server.version.patch.yaml
+  - path: patches/pymp_server.version.patch.yaml
     target:
       labelSelector: "pymp.image=pymp-server"
