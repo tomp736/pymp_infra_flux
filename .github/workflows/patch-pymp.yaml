@@ -21,6 +21,8 @@ jobs:
           echo "version=$(git ls-remote --tag https://github.com/tomp736/pymp.git | cut -d '/' -f 3 | sort -V | tail -1)" >> $GITHUB_OUTPUT      
 
   update-patches:
+    needs: 
+      - prepare
     strategy:
       fail-fast: false
       matrix:
