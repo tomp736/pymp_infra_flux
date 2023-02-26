@@ -69,7 +69,11 @@ jobs:
       - run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
+          
+      - run: |
           for file in applications/pymp/patches/*; do git add $file; done
+          
+      - run: |
           if [[ -n $(git status --porcelain) ]]; then
             echo "Changes detected"
             git commit -am "updating patches"
