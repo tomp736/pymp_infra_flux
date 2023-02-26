@@ -35,9 +35,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Check if image is available
+      - name: Check image manifest
         run: |
-          docker pull ghcr.io/tomp736/pymp/${{ matrix.image }}:${{ needs.prepare.outputs.current_version }}-dev
+          docker manifest inspect ghcr.io/tomp736/pymp/${{ matrix.image }}:${{ needs.prepare.outputs.current_version }}-dev
       
       - name: Update deployment images
         if: matrix.image == 'ghcr.io/tomp736/pymp/pymp_frontend'
@@ -69,6 +69,11 @@ jobs:
       - run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add .
-          git commit -am "updating patches"
-          git push
+          for file in applications/pymp/patches/*; do git add $file; done
+          if [[ -n $(git status --porcelain) ]]; then
+            echo "Changes detected"
+            git commit -am "updating patches"
+            git push
+          else
+            echo "No changes detected"
+          fi
