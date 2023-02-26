@@ -70,9 +70,10 @@ jobs:
         with:
           name: patches
           path: applications/pymp/patches
-
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "Update PyMP frontend deployment image"
-          commit_options: '--author "GitHub Action <action@github.com>"'
+          
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -am "updating patches"
+          git push
