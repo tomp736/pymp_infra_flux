@@ -70,11 +70,12 @@ jobs:
           git config user.email github-actions@github.com
           
       - run: |
-          for file in applications/pymp/patches/*; 
-          do 
-            echo "Adding $file"
-            git add $file
-          done
+          git add .
+          # for file in applications/pymp/patches/*; 
+          # do 
+          #   echo "Adding $file"
+          #   git add $file
+          # done
           
       - run: |
           if [[ -n $(git status --porcelain) ]]; then
