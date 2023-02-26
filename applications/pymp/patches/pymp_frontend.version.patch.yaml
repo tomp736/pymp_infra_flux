@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pymp-frontend
+spec:
+  template:
+    spec:
+      containers:
+        - name: pymp-frontend
+          image: ghcr.io/tomp736/pymp/pymp_frontend:0.2.30-dev
