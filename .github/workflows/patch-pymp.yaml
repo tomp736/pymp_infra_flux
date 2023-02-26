@@ -27,8 +27,8 @@ jobs:
       fail-fast: false
       matrix:
         image:
-          - ghcr.io/tomp736/pymp/pymp_frontend
-          - ghcr.io/tomp736/pymp/pymp_server
+          - pymp_frontend
+          - pymp_server
           
     runs-on: ubuntu-latest
     steps:
@@ -42,13 +42,8 @@ jobs:
       - name: Update deployment images
         if: matrix.image == 'ghcr.io/tomp736/pymp/pymp_frontend'
         run: |
-          yq e '.spec.template.spec.containers[0].image = "${{ matrix.image }}:${{ needs.prepare.outputs.current_version }}-dev"' -i applications/pymp/patches/pymp-frontend.version.patch.yaml
+          yq e '.spec.template.spec.containers[0].image = "ghcr.io/tomp736/pymp/${{ matrix.image }}:${{ needs.prepare.outputs.current_version }}-dev"' -i applications/pymp/patches/${{ matrix.image }}.version.patch.yaml
       
-      - name: Update deployment images
-        if: matrix.image == 'ghcr.io/tomp736/pymp/pymp_server'
-        run: |
-          yq e '.spec.template.spec.containers[0].image = "${{ matrix.image }}:${{ needs.prepare.outputs.current_version }}-dev"' -i applications/pymp/patches/pymp-server.version.patch.yaml
-
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v3
         with:
