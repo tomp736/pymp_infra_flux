@@ -11,13 +11,9 @@ jobs:
   prepare:
     runs-on: ubuntu-latest
     outputs:
-      new_version: ${{ steps.patch_version.outputs.new_version }}
+      new_version: ${{ steps.current_version.outputs.version }}
 
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-      
+    steps:      
       # Read the current version number from git ls-remote
       - id: current_version
         shell: bash
