@@ -49,6 +49,27 @@ jobs:
         run: |
           yq e '.spec.template.spec.containers[0].image = "${{ matrix.image }}:${{ needs.prepare.outputs.current_version }}-dev"' -i applications/pymp/patches/pymp-server.version.patch.yaml
 
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v3
+        with:
+          name: patches
+          path: applications/pymp/patches
+          retention-days: 1
+
+  commit-patches:
+    needs: 
+      - update-patches
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: patches
+
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
