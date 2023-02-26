@@ -42,12 +42,12 @@ jobs:
       - name: Update deployment images
         if: matrix.image == 'ghcr.io/tomp736/pymp/pymp_frontend'
         run: |
-          yq '.spec.template.spec.containers[0].image = "${{ matrix.image }}:${{ needs.prepare.outputs.current_version }}-dev"' applications/pymp/patches/pymp-frontend.version.patch.yaml -iy
+          yq e '.spec.template.spec.containers[0].image = "${{ matrix.image }}:${{ needs.prepare.outputs.current_version }}-dev"' -i applications/pymp/patches/pymp-frontend.version.patch.yaml
       
       - name: Update deployment images
         if: matrix.image == 'ghcr.io/tomp736/pymp/pymp_server'
         run: |
-          yq '.spec.template.spec.containers[0].image = "${{ matrix.image }}:${{ needs.prepare.outputs.current_version }}-dev"' applications/pymp/patches/pymp-server.version.patch.yaml -iy
+          yq e '.spec.template.spec.containers[0].image = "${{ matrix.image }}:${{ needs.prepare.outputs.current_version }}-dev"' -i applications/pymp/patches/pymp-server.version.patch.yaml
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
