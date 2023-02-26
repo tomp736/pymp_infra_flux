@@ -40,7 +40,6 @@ jobs:
           docker manifest inspect ghcr.io/tomp736/pymp/${{ matrix.image }}:${{ needs.prepare.outputs.current_version }}-dev
       
       - name: Update deployment images
-        if: matrix.image == 'ghcr.io/tomp736/pymp/pymp_frontend'
         run: |
           yq e '.spec.template.spec.containers[0].image = "ghcr.io/tomp736/pymp/${{ matrix.image }}:${{ needs.prepare.outputs.current_version }}-dev"' -i applications/pymp/patches/${{ matrix.image }}.version.patch.yaml
       
@@ -71,12 +70,10 @@ jobs:
           git config user.email github-actions@github.com
           
       - run: |
-          git add .
           for file in applications/pymp/patches/*; 
           do 
             echo "Adding $file"
-            cat $file
-            # git add $file
+            git add $file
           done
           
       - run: |
