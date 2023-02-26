@@ -72,11 +72,12 @@ jobs:
           
       - run: |
           git add .
-          # for file in applications/pymp/patches/*; 
-          # do 
-          #   echo "Adding $file"
-          #   git add $file
-          # done
+          for file in applications/pymp/patches/*; 
+          do 
+            echo "Adding $file"
+            cat $file
+            # git add $file
+          done
           
       - run: |
           if [[ -n $(git status --porcelain) ]]; then
