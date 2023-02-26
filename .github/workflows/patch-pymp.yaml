@@ -1,9 +1,8 @@
 name: Update PyMP Patch
 on:
-  push:
-    branches:
-      - main
-
+  repository_dispatch:
+    types: [update-pymp-patch]
+    
 permissions:
   contents: write
 
