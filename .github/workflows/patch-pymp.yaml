@@ -7,6 +7,10 @@ on:
 permissions:
   contents: write
 
+concurrency: 
+  group: update-pymp-patch
+  cancel-in-progress: false
+
 jobs:
   prepare:
     runs-on: ubuntu-latest
