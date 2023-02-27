@@ -18,7 +18,7 @@ jobs:
       - id: this_version
         shell: bash
         run: |
-          echo "this_version=$(git ls-remote --tag origin | cut -d '/' -f 3 | sort -V | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | tail -1)" >> $GITHUB_OUTPUT
+          echo "this_version=$(git ls-remote --tag https://github.com/tomp736/pymp.git | cut -d '/' -f 3 | sort -V | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | tail -1)" >> $GITHUB_OUTPUT
 
   update-patches:
     needs: 
