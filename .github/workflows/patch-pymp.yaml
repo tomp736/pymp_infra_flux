@@ -51,7 +51,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: patches
-          path: applications/pymp/patches/applications/pymp/patches/${{ matrix.image }}.version.patch.yaml
+          path: applications/pymp/patches/${{ matrix.image }}.version.patch.yaml
           retention-days: 1
 
   commit-patches:
