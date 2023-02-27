@@ -18,7 +18,7 @@ jobs:
       - id: current_version
         shell: bash
         run: |
-          echo "version=$(git ls-remote --tag https://github.com/tomp736/pymp.git | cut -d '/' -f 3 | sort -V | tail -1)" >> $GITHUB_OUTPUT      
+          echo "version=$(git ls-remote --tag origin | cut -d '/' -f 3 | sort -V | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | tail -1)" >> $GITHUB_OUTPUT
 
   update-patches:
     needs: 
@@ -37,11 +37,11 @@ jobs:
 
       - name: Check image manifest
         run: |
-          docker manifest inspect ghcr.io/tomp736/pymp/${{ matrix.image }}:${{ needs.prepare.outputs.current_version }}-dev
+          docker manifest inspect ghcr.io/tomp736/pymp/${{ matrix.image }}:${{ needs.prepare.outputs.current_version }}
       
       - name: Update deployment images
         run: |
-          yq e '.spec.template.spec.containers[0].image = "ghcr.io/tomp736/pymp/${{ matrix.image }}:${{ needs.prepare.outputs.current_version }}-dev"' -i applications/pymp/patches/${{ matrix.image }}.version.patch.yaml
+          yq e '.spec.template.spec.containers[0].image = "ghcr.io/tomp736/pymp/${{ matrix.image }}:${{ needs.prepare.outputs.current_version }}"' -i applications/pymp/patches/${{ matrix.image }}.version.patch.yaml
       
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v3
