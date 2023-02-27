@@ -11,7 +11,7 @@ jobs:
   prepare:
     runs-on: ubuntu-latest
     outputs:
-      this_version: ${{ steps.current_version.outputs.this_version }}
+      this_version: ${{ steps.this_version.outputs.this_version }}
 
     steps:      
       # Read the current version number from git ls-remote
