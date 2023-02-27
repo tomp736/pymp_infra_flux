@@ -3,4 +3,3 @@ kind: Kustomization
 resources:
   - 00-sources
   - traefik
-  - metrics-server
