@@ -56,6 +56,7 @@ jobs:
 
   commit-patches:
     needs: 
+      - prepare
       - update-patches
 
     runs-on: ubuntu-latest
@@ -84,7 +85,7 @@ jobs:
       - run: |
           if [[ -n $(git status --porcelain) ]]; then
             echo "Changes detected"
-            git commit -am "updating patches"
+            git commit -am "Update Pymp Version : ${{ needs.prepare.outputs.this_version }}"
             git push
           else
             echo "No changes detected"
