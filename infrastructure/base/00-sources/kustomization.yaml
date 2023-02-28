@@ -3,5 +3,4 @@ kind: Kustomization
 namespace: flux-system
 resources:
   - helmrepo/bitnami.yaml
-  - helmrepo/metrics-server.yaml
   - helmrepo/traefik.yaml
