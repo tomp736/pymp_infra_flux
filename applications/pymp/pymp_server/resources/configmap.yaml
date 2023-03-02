@@ -17,7 +17,7 @@ data:
   SERVER_PROTO: "http"
   SERVER_HOST: "pymp-server"
   SERVER_PORT: "80"
-  SERVER_TYPE: "15"
+  SERVER_ROLES: "15"
 
   MEDIAREGISTRY_SVC_PROTO: "http"
   MEDIAREGISTRY_SVC_HOST: "pymp-server-media-registry"
