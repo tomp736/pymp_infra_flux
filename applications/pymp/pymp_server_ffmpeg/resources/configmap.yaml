@@ -17,7 +17,7 @@ data:
   SERVER_PROTO: "http"
   SERVER_HOST: "pymp-server-ffmpeg"
   SERVER_PORT: "80"
-  SERVER_ROLES: "16"
+  SERVER_ROLES: "32"
 
   MEDIAREGISTRY_SVC_PROTO: "http"
   MEDIAREGISTRY_SVC_HOST: "pymp-server-media-registry"
