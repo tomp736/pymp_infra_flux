@@ -11,7 +11,7 @@ data:
   REDIS_HOST: "pymp-redis"
   REDIS_PORT: "6379"
 
-  SERVICE_PROTO: "http"
-  SERVICE_HOST: "pymp-server-media-registry"
-  SERVICE_PORT: "80"
-  SERVICE_TYPE: "32"
+  SERVER_PROTO: "http"
+  SERVER_HOST: "pymp-server-media-registry"
+  SERVER_PORT: "80"
+  SERVER_TYPE: "32"

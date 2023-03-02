@@ -30,7 +30,7 @@ spec:
         - configMapRef:
             name: pymp-server-media
         env:
-        - name: SERVICE_IP
+        - name: SERVER_IP
           valueFrom:
             fieldRef:
               fieldPath: status.podIP

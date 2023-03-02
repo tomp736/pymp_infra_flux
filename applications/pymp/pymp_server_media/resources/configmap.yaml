@@ -13,10 +13,10 @@ data:
   THUMB_CHUNK_SIZE: "32768"
   CORS_HEADER: "http://frontend.pymp.labrats.work"
 
-  SERVICE_PROTO: "http"
-  SERVICE_HOST: "pymp-server-media"
-  SERVICE_PORT: "80"
-  SERVICE_TYPE: "8"
+  SERVER_PROTO: "http"
+  SERVER_HOST: "pymp-server-media"
+  SERVER_PORT: "80"
+  SERVER_TYPE: "8"
 
   MEDIAREGISTRY_SVC_PROTO: "http"
   MEDIAREGISTRY_SVC_HOST: "pymp-server-media-registry"
