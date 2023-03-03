@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: services-config
 data:
-  service_config.json: |
+  services_config.json: |
     [
       {
           "id": "media_registry",
