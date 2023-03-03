@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: services-config
+  name: pymp-registry-services
 data:
-  services_config.json: |
+  registry-services.json: |
     [
       {
           "id": "media_registry",

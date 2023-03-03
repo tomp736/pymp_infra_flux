@@ -31,9 +31,9 @@ spec:
             name: pymp-server
         volumeMounts:
           - name: config-volume
-            mountPath: /app/services_config.json
-            subPath: services_config.json
+            mountPath: /app/registry-services.json
+            subPath: registry-services.json
       volumes:
         - name: config-volume
           configMap:
-            name: services-config
+            name: pymp-registry-services

@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: pymp
 resources:
   - namespace.yaml
-  - configmap.services.yaml
+  - configmap.registry-service.yaml
   - pymp_redis
   - pymp_redis_readonly
   - pymp_frontend
