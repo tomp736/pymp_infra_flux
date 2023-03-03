@@ -34,3 +34,11 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: status.podIP
+        volumeMounts:
+          - name: config-volume
+            mountPath: /app/services_config.json
+            subPath: services_config.json
+      volumes:
+        - name: config-volume
+          configMap:
+            name: services-config

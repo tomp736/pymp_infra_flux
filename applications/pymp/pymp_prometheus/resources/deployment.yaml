@@ -22,9 +22,9 @@ spec:
         imagePullPolicy: Always
         volumeMounts:
           - name: config-volume
-            mountPath: /etc/prometheus/prometheus.yml
-            subPath: prometheus.yml
+            mountPath: /app/services_config.json
+            subPath: services_config.json
       volumes:
         - name: config-volume
           configMap:
-            name: pymp-prometheus
+            name: services-config

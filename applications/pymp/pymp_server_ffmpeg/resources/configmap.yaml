@@ -5,20 +5,18 @@ metadata:
   namespace: pymp
 data:
   PYTHONHASHSEED: "383747829"
+
   FLASK_RUN_HOST: "0.0.0.0"
   FLASK_RUN_PORT: "80"
+  FLASK_CORS_HEADER: "http://frontend.pymp.labrats.work"
+
   REDIS_HOST: "pymp-redis"
   REDIS_PORT: "6379"
-  MEDIA_CHUNK_SIZE: "4194304"
-  THUMB_CHUNK_SIZE: "32768"
-  CORS_HEADER: "http://frontend.pymp.labrats.work"
 
-  SERVER_ID: "internal"
+  MEDIA_MEDIA_CHUNK_SIZE: "4194304"
+  MEDIA_THUMB_CHUNK_SIZE: "32768"
+
   SERVER_PROTO: "http"
   SERVER_HOST: "pymp-server-ffmpeg"
   SERVER_PORT: "80"
   SERVER_ROLES: "32"
-
-  MEDIAREGISTRY_SVC_PROTO: "http"
-  MEDIAREGISTRY_SVC_HOST: "pymp-server-media-registry"
-  MEDIAREGISTRY_SVC_PORT: "80"
