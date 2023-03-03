@@ -22,7 +22,7 @@ spec:
         imagePullPolicy: Always
         volumeMounts:
           - name: config-volume
-            mountPath: /etc/prometheus
+            mountPath: /etc/prometheus/prometheus.yml
             subPath: prometheus.yml
       volumes:
         - name: config-volume
