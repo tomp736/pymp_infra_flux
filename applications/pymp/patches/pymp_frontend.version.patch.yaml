@@ -7,4 +7,4 @@ spec:
     spec:
       containers:
         - name: pymp-frontend
-          image: ghcr.io/tomp736/pymp/pymp_frontend:0.6.0
+          image: ghcr.io/tomp736/pymp/pymp_frontend:0.6.1
