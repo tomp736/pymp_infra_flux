@@ -1,6 +1,5 @@
 name: 'on repo dispatch patch pymp'
 on:
-  workflow_dispatch:
   repository_dispatch:
     types: [patch_pymp]
 
