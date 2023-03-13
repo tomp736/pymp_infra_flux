@@ -4,6 +4,9 @@ on:
   repository_dispatch:
     types: [patch_pymp]
 
+permissions:
+  contents: write
+
 jobs:
   patch_pymp:
 
