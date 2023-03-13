@@ -1,0 +1,14 @@
+name: 'on repo dispatch patch pymp'
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [patch_pymp]
+
+jobs:
+  patch_pymp:
+
+    uses: ./.github/workflows/on_wfc_patch_pymp.yml
+    with:
+      environment: ${{ github.event.client_payload.environment }}
+      version: ${{ github.event.client_payload.version }}
+    secrets: inherit
