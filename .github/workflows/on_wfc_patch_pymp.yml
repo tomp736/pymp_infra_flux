@@ -36,7 +36,8 @@ jobs:
 
       - name: Check image manifest
         run: |
-          docker manifest inspect ghcr.io/tomp736/pymp/${{ matrix.image }}:${{ inputs.version }}
+          # docker manifest inspect ghcr.io/tomp736/pymp/${{ matrix.image }}:${{ inputs.version }}
+          docker pull ghcr.io/tomp736/pymp/${{ matrix.image }}:${{ inputs.version }}
       
       - name: Update deployment images
         run: |
