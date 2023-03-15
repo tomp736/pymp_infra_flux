@@ -4,6 +4,6 @@ metadata:
   name: pymp-frontend
   namespace: pymp
 data:
-  MEDIA_URL: "http://api.pymp.labrats.work"
-  THUMB_URL: "http://api.pymp.labrats.work"
-  META_URL: "http://api.pymp.labrats.work"
+  MEDIA_URL: "http://api.pymp.labrats.work/api"
+  THUMB_URL: "http://api.pymp.labrats.work/api"
+  META_URL: "http://api.pymp.labrats.work/api"
