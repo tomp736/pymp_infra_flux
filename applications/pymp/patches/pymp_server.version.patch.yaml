@@ -7,4 +7,4 @@ spec:
     spec:
       containers:
         - name: pymp-server
-          image: ghcr.io/tomp736/pymp/pymp_server:dev-promotion-57-15
+          image: ghcr.io/tomp736/pymp/pymp_server:dev-promotion-57-16
